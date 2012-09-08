@@ -70,18 +70,26 @@ Running
 JDK version: **1.7.0\_04**	 _(I used NIO.2, which requires Java 7)_
 
 ### Maven
-mvn exec:java -Dexec.mainClass="com.danielsiwiec.trains.TrainApp" -Dexec.args= _graphFileLocation_
+The application can be executed directly using Maven:   
+	mvn exec:java -Dexec.mainClass="com.danielsiwiec.trains.TrainApp" -Dexec.args= _graphFileLocation_  
 
-e.g.
+e.g:
 
-mvn exec:java -Dexec.mainClass="com.danielsiwiec.trains.TrainApp" -Dexec.args="src/main/resources/graph.txt"
+	mvn exec:java -Dexec.mainClass="com.danielsiwiec.trains.TrainApp" -Dexec.args="src/main/resources/graph.txt"
 
-### Directly wih Java
-java com.danielsiwiec.trains.TrainApp _graphFileLocation_
+### Directly wih 'java' command
 
-e.g.
+First, the application needs to be compiled. Use the following command:
 
-java com.danielsiwiec.trains.TrainApp /home/daniel/workspaces/eclipse/thoughtworks/trains/src/main/resources/graph.txt
+	mvn compile
+
+Once completed, the application can be run from target/classes folder:
+
+	java com.danielsiwiec.trains.TrainApp _graphFileLocation_   
+
+e.g:
+
+	java com.danielsiwiec.trains.TrainApp graph.txt
 
 
 Results
