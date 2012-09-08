@@ -9,7 +9,7 @@ import com.danielsiwiec.trains.input.QuerySuiteImpl;
 import com.danielsiwiec.trains.model.Graph;
 import com.danielsiwiec.trains.pathfinders.ByDistanceFinder;
 import com.danielsiwiec.trains.pathfinders.ByStopsFinder;
-import com.danielsiwiec.trains.pathfinders.DijkstraShortesPathFinder;
+import com.danielsiwiec.trains.pathfinders.DijkstraShortestPathFinder;
 import com.danielsiwiec.trains.pathfinders.RecursiveByDistanceFinder;
 import com.danielsiwiec.trains.pathfinders.RecursiveByStopsFinder;
 import com.danielsiwiec.trains.pathfinders.ShortestPathFinder;
@@ -31,7 +31,7 @@ public class TrainApp {
 		Graph graph = creator.createGraph(graphFilePath);
 		ByDistanceFinder byDistanceFinder = new RecursiveByDistanceFinder();
 		ByStopsFinder byStopsFinder = new RecursiveByStopsFinder();
-		ShortestPathFinder pathFinder = new DijkstraShortesPathFinder(graph.getAllStations());
+		ShortestPathFinder pathFinder = new DijkstraShortestPathFinder(graph.getAllStations());
 		GraphController controller = new GraphControllerImpl(graph,byStopsFinder,byDistanceFinder,pathFinder);
 		QuerySuite querySet = new QuerySuiteImpl();
 		List<Integer> results = querySet.runQueries(controller);

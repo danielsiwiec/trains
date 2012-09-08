@@ -10,14 +10,14 @@ import com.danielsiwiec.trains.model.Graph;
 import com.danielsiwiec.trains.util.TestGraphProvider;
 
 @Test
-public class DijkstraShortesPathFinderTest {
+public class DijkstraShortestPathFinderTest {
 	
 	private ShortestPathFinder pathFinder;
 	private Graph graph = TestGraphProvider.createGraph();
 	
 	@BeforeClass
 	public void init(){
-		pathFinder = new DijkstraShortesPathFinder(graph.getAllStations());
+		pathFinder = new DijkstraShortestPathFinder(graph.getAllStations());
 	}
 	
 	public void findsShortestPath(){

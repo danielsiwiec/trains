@@ -9,7 +9,7 @@ import java.util.Set;
 import com.danielsiwiec.trains.MissingRouteException;
 import com.danielsiwiec.trains.model.Station;
 
-public class DijkstraShortesPathFinder implements ShortestPathFinder {
+public class DijkstraShortestPathFinder implements ShortestPathFinder {
 
 	private static final int INITIAL = 10;
 
@@ -17,7 +17,7 @@ public class DijkstraShortesPathFinder implements ShortestPathFinder {
 	private Set<Station> visited;
 	private PriorityQueue<Station> unvisited;
 
-	public DijkstraShortesPathFinder(Collection<Station> collection) {
+	public DijkstraShortestPathFinder(Collection<Station> collection) {
 		this.stations = collection;
 	}
 
