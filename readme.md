@@ -11,7 +11,7 @@ Design
 
 ### Domain model
 The domain model is defined in `com.danielsiwiec.trains.model` package and consists of `Station`, `Route` and `Graph` classes. 
-The constructors of `Station` and `Route` and `addRoute()` are package-private and the constructor of `Graph` is private, with the only
+The constructors of `Station` and `Route` and `addRoute()` method are package-private and the constructor of `Graph` is private, with the only
 mean of constructing the graph being the `StringGraphBuilder`. This ensures immutability from outside of the package. 
 
 
@@ -103,8 +103,8 @@ Results
 	 T E S T S
 	-------------------------------------------------------
 	Running TestSuite
-	Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.587 sec
+	Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.118 sec
 	
 	Results :
 	
-	Tests run: 34, Failures: 0, Errors: 0, Skipped: 0
+	Tests run: 35, Failures: 0, Errors: 0, Skipped: 0
