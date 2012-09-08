@@ -5,4 +5,6 @@ import com.danielsiwiec.trains.model.Station;
 public interface ShortestPathFinder {
 
 	public int findShortestTrip(Station from, Station to);
+	
+	public int findShortestRoundTrip(Station from);
 }

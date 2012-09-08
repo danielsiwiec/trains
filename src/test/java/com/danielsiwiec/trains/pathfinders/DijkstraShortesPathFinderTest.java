@@ -20,9 +20,14 @@ public class DijkstraShortesPathFinderTest {
 		pathFinder = new DijkstraShortesPathFinder(graph.getAllStations());
 	}
 	
-	public void findsShortesPath(){
+	public void findsShortestPath(){
 		int trip = pathFinder.findShortestTrip(graph.getStation('A'), graph.getStation('D'));
 		assertEquals(trip,5);
+	}
+	
+	public void findsShortestRoundPath(){
+		int trip = pathFinder.findShortestRoundTrip(graph.getStation('A'));
+		assertEquals(trip,3);
 	}
 	
 	@Test(expectedExceptions=MissingRouteException.class)

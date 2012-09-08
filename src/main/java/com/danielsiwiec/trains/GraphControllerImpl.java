@@ -67,6 +67,6 @@ public class GraphControllerImpl implements GraphController {
 	
 	public int findShortestRoundTrip(char stationId) {
 		Station station = graph.getStation(stationId);
-		return pathFinder.findShortestTrip(station, station);
+		return pathFinder.findShortestRoundTrip(station);
 	}
 }

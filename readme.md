@@ -34,21 +34,22 @@ Graph string definition is validated against a pattern. The correct format of in
 
 1. It's assumed that the station symbols are one-character long. 
 2. The distance can be multi-digit, with 2^31-1 being the maximum value, however Dijkstra algorithm sums the distances up, so it is
- assumed that the distances and number of station is small enough not to cause overflow. For bigger distances a **`long`** should be used.
+ assumed that the distances and number of station is small enough not to cause overflow. For bigger distances a **`long`** variable should be used
+ to store total distance.
 
 ### Algorithm
 
 #### Finding route combinations
 
-For both - by distance and by stops count - a recursive approach has been chosen. For two 'by stops' methods, the same recursive 
-routine has been used, with an additional parameter determining whether it's the exact
-amount of stops or less than. The additional parameter is a trade off for avoiding copy-paste code and using separate methods.
+For both types of queries - by maximum distance and by stops count - a recursive approach has been chosen. For two 'by stops' methods, the same recursive 
+routine has been used, with an additional parameter determining whether it should be the exact
+amount of stops or less than. The additional parameter is a trade off for avoiding copy-paste code and using separate, but very similar methods.
 
 #### Finding shortest route
 
 For its simplicity, Dijkstra algorithm has been chosen. A modification has been made to the classic version of the algorithm, to allow finding
-a round trip. During relaxation stage, if one of the neighbors is the desired (source) station, add it back to the unvisited queue.  
-For the unvisited queue, the `PriorityQueue` has been used, to facilitate the ordering. 
+round trips. During relaxation stage, if one of the neighbors is the desired (source) station, add it back to the unvisited queue.  
+For the unvisited queue, the `PriorityQueue` has been used, to facilitate ordering. 
 
 ### Exception handling
 
@@ -103,8 +104,8 @@ Results
 	 T E S T S
 	-------------------------------------------------------
 	Running TestSuite
-	Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.118 sec
+	Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.583 sec
 	
 	Results :
 	
-	Tests run: 35, Failures: 0, Errors: 0, Skipped: 0
+	Tests run: 37, Failures: 0, Errors: 0, Skipped: 0

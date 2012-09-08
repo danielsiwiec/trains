@@ -25,37 +25,66 @@ public class DijkstraShortesPathFinder implements ShortestPathFinder {
 		initialize();
 		unvisited.add(from);
 		from.setDistanceFromSource(0);
-		// to allow round trip, for the first iteration skip 'are we there yet' check and don't add station to visited 
+
+		while (!unvisited.isEmpty()) {
+			Station closest = unvisited.poll();
+			if (closest.equals(to)) {
+				return closest.getDistanceFromSource();
+			}
+			visited.add(closest);
+			relax(closest);
+		}
+		throw new MissingRouteException("Missing connection: " + from + " - " + to);
+	}
+	
+	private void relax(Station station) {
+		for (Station neighbor : station.getDestinations()) {
+			if (!visited.contains(neighbor)) {
+				int currentKnownDistance = getCurrentKnownDistance(station, neighbor);
+				if (neighbor.getDistanceFromSource() > currentKnownDistance) {
+					neighbor.setDistanceFromSource(currentKnownDistance);
+					unvisited.add(neighbor);
+				}
+			}
+		}
+	}
+
+	public int findShortestRoundTrip(Station from) {
+		initialize();
+		unvisited.add(from);
+		from.setDistanceFromSource(0);
+		// to allow round trip, for the first iteration skip 'are we there yet'
+		// check and don't add station to visited
 		boolean start = true;
 
 		while (!unvisited.isEmpty()) {
 			Station closest = unvisited.poll();
-			if (!start && closest.equals(to)) {
+			if (!start && closest.equals(from)) {
 				return closest.getDistanceFromSource();
 			}
 			if (!start) {
 				visited.add(closest);
 			}
-			relax(closest, from);
+			relaxRoundTrip(closest, from);
 			start = false;
 		}
-		throw new MissingRouteException("Missing connection: " + from + " - " + to);
+		throw new MissingRouteException("Missing round connection: " + from);
 	}
 
-	private void relax(Station station, Station destination) {
+	private void relaxRoundTrip(Station station, Station destination) {
 		for (Station neighbor : station.getDestinations()) {
 			if (!visited.contains(neighbor)) {
 				int currentKnownDistance = getCurrentKnownDistance(station, neighbor);
-				// to allow round trip if the neighbor is the destination, add it back to the queue
+				// to allow round trip if the neighbor is the destination, add
+				// it back to the queue
 				if (neighbor.getDistanceFromSource() > currentKnownDistance || neighbor.equals(destination)) {
 					neighbor.setDistanceFromSource(currentKnownDistance);
 					unvisited.add(neighbor);
 				}
 			}
 		}
-
 	}
-	
+
 	private void initialize() {
 		visited = new HashSet<Station>();
 		unvisited = new PriorityQueue<Station>(INITIAL, new DistanceComparator());

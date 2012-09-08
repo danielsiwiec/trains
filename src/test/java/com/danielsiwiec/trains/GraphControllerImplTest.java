@@ -80,6 +80,12 @@ public class GraphControllerImplTest {
 		assertEquals(length,4);
 	}
 	
+	public void canFindShortesRoundTrip(){
+		when(pathFinder.findShortestRoundTrip(graph.getStation('A'))).thenReturn(4);
+		int length = graphController.findShortestRoundTrip('A');
+		assertEquals(length,4);
+	}
+	
 	public void canFindRoundTripsByMaximumDistance(){
 		when(byDistanceFinder.findRoundTripsByMaximumDistance(graph.getStation('A'), 7)).thenReturn(1);
 		int roundTrips = graphController.findRoundTripsByMaximumDistance('A',7);
