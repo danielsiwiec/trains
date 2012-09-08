@@ -30,7 +30,7 @@ Graph string definition is validated against a pattern. The correct format of in
 #### Assumptions and limitations
 
 1. It's assumed that the station symbols are one-character long. 
-2. The distance can be multi-digit, with 2^31-1 being the maximum value, however Dijkstra algorithm sums the distances up, so it is
+2. The distance can be multi-digit, with 2^31^-1 being the maximum value, however Dijkstra algorithm sums the distances up, so it is
  assumed that the distances and number of station is small enough not to cause overflow. For bigger distances a **`long`** should be used.
 
 ### Algorithm
