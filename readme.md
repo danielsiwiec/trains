@@ -10,7 +10,10 @@ Design
 ---------
 
 ### Domain model
-The domain model consists of `Station`, `Route` and `Graph` classes.
+The domain model is defined in `com.danielsiwiec.trains.model` package and consists of `Station`, `Route` and `Graph` classes. 
+The constructors of `Station` and `Route` and `addRoute()` are package-private and the constructor of `Graph` is private, with the only
+mean of constructing the graph being the `StringGraphBuilder`. This ensures immutability from outside of the package. 
+
 
 ### Graph data structure
 Instead of using adjacency matrix, the graph has been implemented by including references to all edges (routes) in each vertex (station).
@@ -56,9 +59,10 @@ are not recoverable and cause program termination.
 ### Possible improvements
 
 1. Defining queries through a file or other input.
-2. Multi-character station labels
-3. Reading graph from a database (i.e. neo4j)
-4. Adding logging with log4j or slf4j
+2. Allow graph modifications
+3. Multi-character station labels
+4. Reading graph from a database (i.e. neo4j)
+5. Adding logging with log4j or slf4j
 
 Running
 ---------------------

@@ -6,7 +6,7 @@ public class Route {
 	private Station destination;
 	private int distance;
 	
-	public Route(Station source, Station destination, int distance) {
+	Route(Station source, Station destination, int distance) {
 		this.source = source;
 		this.destination = destination;
 		this.distance = distance;

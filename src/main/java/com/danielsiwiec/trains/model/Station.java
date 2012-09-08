@@ -13,7 +13,7 @@ public class Station {
 	private Map<Character,Route> routes = new HashMap<Character, Route>();
 	private int distanceFromSource = Integer.MAX_VALUE;
 	
-	public Station(char id) {
+	Station(char id) {
 		this.id = id;
 	}
 
@@ -42,7 +42,7 @@ public class Station {
 		return destinations;
 	}
 	
-	public void addRoute(Route route) {
+	void addRoute(Route route) {
 		routes.put(route.getDestination().id,route);		
 	}
 

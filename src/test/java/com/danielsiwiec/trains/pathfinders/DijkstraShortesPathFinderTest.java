@@ -1,12 +1,12 @@
 package com.danielsiwiec.trains.pathfinders;
 
+import static org.testng.Assert.assertEquals;
+
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import static org.testng.Assert.*;
 
 import com.danielsiwiec.trains.MissingRouteException;
 import com.danielsiwiec.trains.model.Graph;
-import com.danielsiwiec.trains.model.Station;
 import com.danielsiwiec.trains.util.TestGraphProvider;
 
 @Test
@@ -27,7 +27,7 @@ public class DijkstraShortesPathFinderTest {
 	
 	@Test(expectedExceptions=MissingRouteException.class)
 	public void throwsExceptionWhenNoRoute(){
-		pathFinder.findShortestTrip(graph.getStation('A'), new Station('Z'));
+		pathFinder.findShortestTrip(graph.getStation('A'), graph.getStation('F'));
 	}
 
 }
