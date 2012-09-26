@@ -77,7 +77,7 @@ e.g:
 
 	mvn exec:java -Dexec.mainClass="com.danielsiwiec.trains.TrainApp" -Dexec.args="src/main/resources/graph.txt"
 
-### Directly wih 'java' command
+### Directly with 'java' command
 
 First, the application needs to be compiled. Use the following command:
 
